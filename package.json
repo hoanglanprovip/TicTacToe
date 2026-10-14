@@ -1,0 +1,30 @@
+{
+  "name": "tictactoe",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "scripts": {
+    "dev": "concurrently -k \"npm:dev --workspace=@tt/server\" \"npm:dev --workspace=@tt/web\"",
+    "build": "npm run build --workspace=@tt/engine && npm run build --workspace=@tt/web && npm run build --workspace=@tt/server",
+    "start": "npm run start --workspace=@tt/server",
+    "train": "npm run train --workspace=@tt/server --",
+    "smoke": "node scripts/smoke.mjs",
+    "test": "npm run test --workspace=@tt/engine && npm run test --workspace=@tt/web && npm run test --workspace=@tt/server",
+    "typecheck": "npm run typecheck --workspaces --if-present"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true,
+    "esbuild@0.21.5": true,
+    "esbuild@0.25.12": true
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.6"
+  }
+}

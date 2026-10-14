@@ -1,0 +1,22 @@
+node_modules/
+dist/
+build/
+coverage/
+
+# Dữ liệu runtime: tài khoản (hash mật khẩu), phiên, não bot đã train, ván đấu
+data/
+apps/server/data/
+*.db
+*.db.tmp
+
+# Cấu hình có bí mật
+.env
+.env.local
+
+# Log / rác
+*.log
+npm-debug.log*
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
